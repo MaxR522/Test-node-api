@@ -16,16 +16,15 @@ const generateRefreshToken = (
   payload: any,
   secret: string,
   timeLimit: string,
-) => {
+): string => {
+  // Generate JWT token
+  const _token = jwt.sign(payload, secret, { expiresIn: timeLimit });
   RefreshToken.findOne(
     { userId: _userId },
     (error: any, refreshToken: IRefreshToken) => {
       if (error) {
         throw new error('Erreur lors de la creation du refresh token');
       }
-
-      // Generate JWT token
-      const _token = jwt.sign(payload, secret, { expiresIn: timeLimit });
 
       // If there is no JWT stored for this user, create a new one
       if (!refreshToken) {
@@ -51,10 +50,9 @@ const generateRefreshToken = (
           }
         });
       }
-
-      return _token;
     },
   );
+  return _token;
 };
 
 export default generateRefreshToken;

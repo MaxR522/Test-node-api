@@ -25,9 +25,12 @@ const userValidationFor = (route: string) => {
           return passwordRgxp.test(value);
         }),
         body('dateOfBirth', 'dateOfBirth cannot be blank').notEmpty(),
+        // Date in format YYYY-MM-DD
         body('dateOfBirth', 'Wrong format of date in DateOfBirth').isISO8601(),
         body('gender', 'gender cannot be blank').notEmpty(),
-        body('gender', 'gender cannot be blank').isString(),
+        body('gender', 'gender need to be male or female')
+          .isString()
+          .isIn(['male', 'female']),
       ];
 
     case 'login':
