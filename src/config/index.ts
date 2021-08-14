@@ -13,24 +13,29 @@ if (envFound.error) {
   throw new Error("⚠️  Couldn't find .env file  ⚠️");
 }
 
-const PORT = process.env.PORT || 4242;
-const MONGO_URI = process.env.MONGODB_URI || '';
+const port = process.env.PORT || 4242;
+const mongoDBURI = process.env.MONGODB_URI || '';
+
+const accessTokenSecret = process.env.ACCESS_TOKEN_SECRET || 'myaccesstoken';
+const refreshTokenSecret = process.env.REFRESH_TOKEN_SECRET || 'myRefreshToken';
+const accessTokenExpiry = process.env.ACCESS_TOKEN_EXPIRY || '2h';
+const refreshTokenExpiry = process.env.REFRESH_TOKEN_EXPIRY || '60d';
 
 export default {
   // environment
   env: process.env.NODE_ENV,
 
   // Define port
-  port: PORT,
+  port,
 
   // MongoDB URI
-  mongoDBURI: MONGO_URI,
+  mongoDBURI,
 
   // JWT variables
-  accessTokenSecret: process.env.ACCESS_TOKEN_SECRET,
-  accessTokenExpiry: process.env.ACCESS_TOKEN_EXPIRY,
-  refreshTokenSecret: process.env.REFRESH_TOKEN_SECRET,
-  refreshTokenExpiry: process.env.REFRESH_TOKEN_EXPIRY,
+  accessTokenSecret,
+  accessTokenExpiry,
+  refreshTokenSecret,
+  refreshTokenExpiry,
 
   // CORS Config
   corsOption: {
