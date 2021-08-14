@@ -4,6 +4,7 @@ import { Router } from 'express';
 import GetOne from '../controllers/user_controller/get_one';
 import UpdateUser from '../controllers/user_controller/update_user';
 import UpdatePassword from '../controllers/user_controller/update_password';
+import GetAllUsers from '../controllers/user_controller/get_all';
 
 // Middlewares
 import verifyJWT from '../middlewares/authorization/verify_jwt';
@@ -29,5 +30,7 @@ routes.put(
   checkValidationResult,
   UpdatePassword,
 );
+
+routes.get('/users/:token', verifyJWT, GetAllUsers);
 
 export default routes;
