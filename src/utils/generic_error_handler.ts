@@ -14,7 +14,7 @@ import Logger from '../loaders/winston';
 const genericError = (res: Response, error: any = {}) => {
   Logger.error(error);
   return res.status(400).json({
-    success: false,
+    error: true,
     message: 'Something went wrong !',
     errors: error,
   });

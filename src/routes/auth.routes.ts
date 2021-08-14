@@ -2,11 +2,13 @@ import { Router } from 'express';
 
 // Controllers
 import Register from '../controllers/user_controller/auth/register';
+import Login from '../controllers/user_controller/auth/login';
 
 // Middlewares
 import userValidationFor from '../middlewares/validators/user_field_validator';
 import checkValidationResult from '../middlewares/validators/check_field_validation';
 import CheckUserDuplication from '../middlewares/user/check_user_duplication';
+import checkLoginValidationResult from '../middlewares/validators/check_login_field_validation';
 
 const routes = Router();
 
@@ -18,6 +20,11 @@ routes.post(
   Register,
 );
 
-routes.post('/login');
+routes.post(
+  '/login',
+  userValidationFor('login'),
+  checkLoginValidationResult,
+  Login,
+);
 
 export default routes;
