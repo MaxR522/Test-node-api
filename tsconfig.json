@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "target": "es2015",
+    "module": "commonjs",
+    "sourceMap": true,
+    "outDir": "dist/",
+    "strict": true,
+
+    /* Module Resolution Options */
+    "moduleResolution": "node",
+    "typeRoots": ["./node_modules/@types", "./src/types"],
+    "types": ["node"],
+
+    /* Advanced Options */
+    "skipLibCheck": true,
+    // "forceConsistentCasingInFileNames": true
+    "removeComments": true
+  },
+  "include": ["src/**/*.ts", "index.ts"],
+  "exclude": [
+    "typings/*",
+    "node_modules",
+    "./node_modules",
+    "./node_modules/*",
+    "./node_modules/@types/node/index.d.ts",
+    "tests",
+    "./src/interfaces",
+    "./src/interfaces/*"
+  ]
+}
