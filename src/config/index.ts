@@ -18,7 +18,7 @@ const mongoDBURI = process.env.MONGODB_URI || '';
 
 const accessTokenSecret = process.env.ACCESS_TOKEN_SECRET || 'myaccesstoken';
 const refreshTokenSecret = process.env.REFRESH_TOKEN_SECRET || 'myRefreshToken';
-const accessTokenExpiry = process.env.ACCESS_TOKEN_EXPIRY || '2h';
+const accessTokenExpiry = process.env.ACCESS_TOKEN_EXPIRY || '24h';
 const refreshTokenExpiry = process.env.REFRESH_TOKEN_EXPIRY || '60d';
 
 export default {
