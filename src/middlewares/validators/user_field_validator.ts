@@ -24,11 +24,14 @@ const userValidationFor = (route: string) => {
           const passwordRgxp = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])/;
           return passwordRgxp.test(value);
         }),
-        body('dateOfBirth', 'dateOfBirth cannot be blank').notEmpty(),
+        body('date_naissance', 'date_naissance cannot be blank').notEmpty(),
         // Date in format YYYY-MM-DD
-        body('dateOfBirth', 'Wrong format of date in DateOfBirth').isISO8601(),
-        body('gender', 'gender cannot be blank').notEmpty(),
-        body('gender', 'gender need to be male or female')
+        body(
+          'date_naissance',
+          'Wrong format of date in date_naissance',
+        ).isISO8601(),
+        body('sexe', 'sexe cannot be blank').notEmpty(),
+        body('sexe', 'sexe need to be male or female')
           .isString()
           .isIn(['male', 'female']),
       ];

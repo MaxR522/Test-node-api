@@ -8,7 +8,11 @@ const verifyJWT = (req: Request, res: Response, next: NextFunction) => {
 
   jwt.verify(token, config.accessTokenSecret, (error: any, decoded: any) => {
     if (error) {
-      return genericError(res, error);
+      return res.status(401).json({
+        error: true,
+        message: "le token envoye n'est pas conforme",
+        errors: error,
+      });
     }
 
     if (decoded) {

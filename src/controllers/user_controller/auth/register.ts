@@ -7,7 +7,7 @@ import config from '../../../config';
 import generateRefreshToken from '../../../utils/generate_refresh_token';
 
 const Register = (req: Request, res: Response) => {
-  const { firstname, lastname, email, password, dateOfBirth, gender } =
+  const { firstname, lastname, email, password, date_naissance, sexe } =
     req.body;
 
   const newUser = new User({
@@ -15,8 +15,8 @@ const Register = (req: Request, res: Response) => {
     lastname,
     email,
     password,
-    dateOfBirth,
-    gender,
+    dateOfBirth: date_naissance,
+    gender: sexe,
   });
 
   newUser.save(async (error: any) => {
