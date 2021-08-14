@@ -50,8 +50,8 @@ app.use(router);
 // Return 404 when not found endpoint
 app.use((req: express.Request, res: express.Response) => {
   res.status(404).json({
-    success: false,
-    message: `endpoint ${req.originalUrl} not found`,
+    error: true,
+    message: `ressource ${req.originalUrl} n'existe pas`,
   });
 });
 
@@ -65,8 +65,8 @@ app.use(
   ) => {
     if (err instanceof SyntaxError) {
       return res.status(400).json({
-        success: false,
-        message: 'The body of your request is not valid json!',
+        error: true,
+        message: "Le body de la requete n'est pas une JSON valide",
       });
     }
   },

@@ -1,5 +1,4 @@
 import { Request, Response, NextFunction } from 'express';
-import genericError from '../../utils/generic_error_handler';
 import * as jwt from 'jsonwebtoken';
 import config from '../../config';
 
@@ -17,6 +16,7 @@ const verifyJWT = (req: Request, res: Response, next: NextFunction) => {
 
     if (decoded) {
       req.userData = decoded;
+      req.token = token;
       next();
     }
   });
