@@ -9,7 +9,7 @@
     /* Module Resolution Options */
     "moduleResolution": "node",
     "typeRoots": ["./node_modules/@types", "./src/types"],
-    "types": ["node"],
+    "types": ["node", "mocha"],
 
     /* Advanced Options */
     "skipLibCheck": true,

@@ -11,3 +11,5 @@ app
   .on('error', (error) => {
     Logger.error(`${error} ❌`);
   });
+
+export default app;
