@@ -38,6 +38,8 @@ app.use(helmet());
  *
  *****************************************************/
 
+app.use('/', express.static('public'));
+
 // load router
 app.use(router);
 
