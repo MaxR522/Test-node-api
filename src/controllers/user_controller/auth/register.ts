@@ -10,6 +10,7 @@ const Register = (req: Request, res: Response) => {
   const { firstname, lastname, email, password, date_naissance, sexe } =
     req.body;
 
+  // create new User
   const newUser = new User({
     firstname,
     lastname,

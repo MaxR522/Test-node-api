@@ -11,11 +11,13 @@ import IUser from '../../../interfaces/user_interface';
 const Login = (req: Request, res: Response) => {
   const { email, password } = req.body;
 
+  // Search inside database the user by his email
   User.findOne({ email }, (error: any, user: IUser) => {
     if (error) {
       return genericError(res, error);
     }
 
+    // Throw an error if user not found
     if (!user) {
       return res.status(404).json({
         error: true,
@@ -23,6 +25,7 @@ const Login = (req: Request, res: Response) => {
       });
     }
 
+    // Check the validity of the password
     if (user) {
       bcrypt.compare(
         password,
@@ -38,6 +41,9 @@ const Login = (req: Request, res: Response) => {
               message: 'votre email ou password est errone',
             });
           }
+
+          // If password valid, generate Tokens and throw display it to the user
+          // payload = user's info store inside JWT
 
           if (isMatch) {
             const payload = {
