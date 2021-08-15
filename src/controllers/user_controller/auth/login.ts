@@ -27,6 +27,25 @@ const Login = (req: Request, res: Response) => {
 
     // Check the validity of the password
     if (user) {
+      // Attempt on login max = 10
+      // Check if the max attempt is reached and block the execution if it is reached
+      if (user.attemptLogin >= 10) {
+        // Reset user.attemptLogin to 0
+        setTimeout(() => {
+          user.attemptLogin = 0;
+          user.save((error: any) => {
+            if (error) {
+              return genericError(res, error);
+            }
+          });
+        }, 3600000); // <-- 3600000ms = 1h
+
+        return res.status(409).json({
+          error: true,
+          message: `Trop de tentative sur l'email: ${email}, veillez patientez 1h`,
+        });
+      }
+
       bcrypt.compare(
         password,
         user.password,
@@ -36,9 +55,17 @@ const Login = (req: Request, res: Response) => {
           }
 
           if (!isMatch) {
-            return res.status(401).json({
-              error: true,
-              message: 'votre email ou password est errone',
+            // If wrong password, increase attemptLogin value
+            user.attemptLogin += 1;
+
+            user.save((error: any) => {
+              if (error) {
+                return genericError(res, error);
+              }
+              return res.status(401).json({
+                error: true,
+                message: 'votre email ou password est errone',
+              });
             });
           }
 

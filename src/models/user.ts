@@ -34,6 +34,12 @@ const UserSchema = new mongoose.Schema(
       enum: ['male', 'female'],
     },
 
+    // Attempt on login (10 attempt max)
+    attemptLogin: {
+      type: Number,
+      default: 0,
+    },
+
     // Password reset
     passwordResetToken: {
       type: String,

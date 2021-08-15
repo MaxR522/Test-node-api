@@ -8,6 +8,9 @@ interface IUser extends Document {
   dateOfBirth: Date;
   gender: string;
 
+  // login attempt limit
+  attemptLogin: number;
+
   // Password reset
   passwordResetToken: string;
   allowPasswordReset: boolean;
