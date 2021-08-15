@@ -16,7 +16,7 @@ RESTful API based on ExpressTs.
 
 > I Assume that you installed all the prerequisite globally
 
-- Create 2 databases (for development & for testing)
+- Create 2 databases inside mongo (for development & for testing)
 - Create a .env file, copy inside it all the variables inside .env.example and add the right value for the all .env variables
 
 Clone the project
