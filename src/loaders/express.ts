@@ -38,7 +38,10 @@ app.use(helmet());
  *
  *****************************************************/
 
+// Load static files
 app.use('/', express.static('public'));
+
+app.use('/docs', express.static('doc'));
 
 // load router
 app.use(router);
