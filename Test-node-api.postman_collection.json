@@ -1,0 +1,174 @@
+{
+	"info": {
+		"_postman_id": "97715201-bbf7-4cae-96e3-9792fc7f9395",
+		"name": "Test-node-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstname\": \"Mario\",\n    \"lastname\": \"Ranja\",\n    \"email\": \"ranja22@gmail.com\",\n    \"password\": \"Ranja522\",\n    \"date_naissance\": \"1997-04-30\",\n    \"sexe\": \"male\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4242/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4242",
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"ranja@gmail.com\",\n    \"password\": \"Ranja522\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4242/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4242",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get One user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4242/user/eyJhGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MTE3YjNiZTBlMzk1YzdjNDI2YTY0MGMiLCJlbWFpbCI6InJhbmphQGdtYWlsLmNvbSIsImlhdCI6MTYyODk0NDgzMSwiZXhwIjoxNjI4OTUyMDMxfQ.m-DSXMK4trpJnDH9TzzvWeUsZe3hZjNyoTsJe0YeeLI",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4242",
+							"path": [
+								"user",
+								"eyJhGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MTE3YjNiZTBlMzk1YzdjNDI2YTY0MGMiLCJlbWFpbCI6InJhbmphQGdtYWlsLmNvbSIsImlhdCI6MTYyODk0NDgzMSwiZXhwIjoxNjI4OTUyMDMxfQ.m-DSXMK4trpJnDH9TzzvWeUsZe3hZjNyoTsJe0YeeLI"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstname\": \"Mario Updated\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4242/user/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MTE3YjNiZTBlMzk1YzdjNDI2YTY0MGMiLCJlbWFpbCI6InJhbmphQGdtYWlsLmNvbSIsImlhdCI6MTYyODk0NDgzMSwiZXhwIjoxNjI4OTUyMDMxfQ.m-DSXMK4trpJnDH9TzzvWeUsZe3hZjNyoTsJe0YeeLI",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4242",
+							"path": [
+								"user",
+								"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MTE3YjNiZTBlMzk1YzdjNDI2YTY0MGMiLCJlbWFpbCI6InJhbmphQGdtYWlsLmNvbSIsImlhdCI6MTYyODk0NDgzMSwiZXhwIjoxNjI4OTUyMDMxfQ.m-DSXMK4trpJnDH9TzzvWeUsZe3hZjNyoTsJe0YeeLI"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update password",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"currentPassword\": \"Ranja522\",\n    \"newPassword\": \"Password22\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4242/user/password/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MTE3YjNiZTBlMzk1YzdjNDI2YTY0MGMiLCJlbWFpbCI6InJhbmphQGdtYWlsLmNvbSIsImlhdCI6MTYyODk0NDgzMSwiZXhwIjoxNjI4OTUyMDMxfQ.m-DSXMK4trpJnDH9TzzvWeUsZe3hZjNyoTsJe0YeeLI",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4242",
+							"path": [
+								"user",
+								"password",
+								"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MTE3YjNiZTBlMzk1YzdjNDI2YTY0MGMiLCJlbWFpbCI6InJhbmphQGdtYWlsLmNvbSIsImlhdCI6MTYyODk0NDgzMSwiZXhwIjoxNjI4OTUyMDMxfQ.m-DSXMK4trpJnDH9TzzvWeUsZe3hZjNyoTsJe0YeeLI"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:4242/users/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MTE3YjNiZTBlMzk1YzdjNDI2YTY0MGMiLCJlbWFpbCI6InJhbmphQGdtYWlsLmNvbSIsImlhdCI6MTYyODk1MTQ1MCwiZXhwIjoxNjI5MDM3ODUwfQ.P9RwVJx6gUVNWi9pm6B09iisufEqIlvSlctk_BdDFpE",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4242/users/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MTE3YjNiZTBlMzk1YzdjNDI2YTY0MGMiLCJlbWFpbCI6InJhbmphQGdtYWlsLmNvbSIsImlhdCI6MTYyODk1MTQ1MCwiZXhwIjoxNjI5MDM3ODUwfQ.P9RwVJx6gUVNWi9pm6B09iisufEqIlvSlctk_BdDFpE",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4242",
+							"path": [
+								"users",
+								"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MTE3YjNiZTBlMzk1YzdjNDI2YTY0MGMiLCJlbWFpbCI6InJhbmphQGdtYWlsLmNvbSIsImlhdCI6MTYyODk1MTQ1MCwiZXhwIjoxNjI5MDM3ODUwfQ.P9RwVJx6gUVNWi9pm6B09iisufEqIlvSlctk_BdDFpE"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
