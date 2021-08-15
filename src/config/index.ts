@@ -13,8 +13,17 @@ if (envFound.error) {
   throw new Error("⚠️  Couldn't find .env file  ⚠️");
 }
 
+const env = process.env.NODE_ENV;
 const port = process.env.PORT || 4242;
-const mongoDBURI = process.env.MONGODB_URI || '';
+
+// Change to DB test for testing environment
+if (env === 'test') {
+  process.env.MONGOOSE_URL = process.env.MONGODB_URI_TEST;
+} else {
+  process.env.MONGOOSE_URL = process.env.MONGODB_URI;
+}
+
+const mongoDBURI = process.env.MONGOOSE_URL || '';
 
 const accessTokenSecret = process.env.ACCESS_TOKEN_SECRET || 'myaccesstoken';
 const refreshTokenSecret = process.env.REFRESH_TOKEN_SECRET || 'myRefreshToken';
@@ -23,7 +32,7 @@ const refreshTokenExpiry = process.env.REFRESH_TOKEN_EXPIRY || '60d';
 
 export default {
   // environment
-  env: process.env.NODE_ENV,
+  env,
 
   // Define port
   port,

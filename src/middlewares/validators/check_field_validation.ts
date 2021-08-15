@@ -17,13 +17,13 @@ const checkValidationResult = (req: Request, res: Response, next: any) => {
     Logger.error('Wrong or missing params');
     if (isBlank) {
       return res.status(401).json({
-        success: false,
+        error: true,
         message: "L'un ou plusieur donnees obligatoire sont manquantes",
         errors: errors.array(),
       });
     }
     return res.status(401).json({
-      success: false,
+      error: true,
       message: "L'un ou plusieur donnees obligatoire ne sont pas conformes",
       errors: errors.array(),
     });

@@ -9,7 +9,7 @@ const checkLoginValidationResult = (req: Request, res: Response, next: any) => {
     Logger.error('Wrong or missing params');
 
     return res.status(401).json({
-      success: false,
+      error: true,
       message: 'email/password est manquant',
       errors: errors.array(),
     });

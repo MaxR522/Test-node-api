@@ -87,6 +87,9 @@ mongoose.connect(
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
+    poolSize: 10, // Maintain up to 10 socket connections
+    serverSelectionTimeoutMS: 30000, // Keep trying to send operations for 5 seconds
+    socketTimeoutMS: 45000,
   },
   (error) => {
     if (error) {
