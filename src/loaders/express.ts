@@ -30,7 +30,7 @@ app.use(cors(config.corsOption));
 app.use(morganMiddleware);
 
 // security
-// app.use(helmet());
+app.use(helmet());
 
 /*****************************************************
  *
